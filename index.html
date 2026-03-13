@@ -1,0 +1,463 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Uwayezu Jeanpaul | Portfolio</title>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Segoe UI, sans-serif;
+background:#0d1117;
+color:white;
+line-height:1.6;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#161b22;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:30px;
+z-index:1000;
+}
+
+nav a{
+color:#58a6ff;
+text-decoration:none;
+font-weight:600;
+}
+
+nav a:hover{
+color:white;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+color:#8b949e;
+margin-bottom:25px;
+}
+
+.btn{
+display:inline-block;
+background:#238636;
+padding:12px 28px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#2ea043;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1000px;
+margin:auto;
+padding:80px 20px;
+}
+
+section h2{
+color:#58a6ff;
+margin-bottom:25px;
+font-size:32px;
+text-align:center;
+}
+
+/* CARDS */
+
+.card{
+background:#161b22;
+padding:25px;
+border-radius:12px;
+margin-bottom:25px;
+}
+
+/* PROJECT GRID */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.project{
+background:#161b22;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.project:hover{
+transform:translateY(-5px);
+background:#1f242c;
+}
+
+/* SKILLS BADGES */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+}
+
+.skills span{
+background:#21262d;
+padding:10px 14px;
+border-radius:6px;
+}
+
+/* TERMINAL */
+
+pre{
+background:black;
+color:#00ff9c;
+padding:20px;
+border-radius:10px;
+overflow:auto;
+}
+
+/* SKILL BARS */
+
+.skill-bar{
+margin:20px auto;
+max-width:700px;
+}
+
+.skill-bar p{
+margin-bottom:6px;
+}
+
+.bar{
+width:100%;
+background:#21262d;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress{
+width:0;
+height:12px;
+background:#58a6ff;
+transition:width 2s ease;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+display:inline-block;
+margin:10px;
+color:#58a6ff;
+text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px;
+color:#8b949e;
+}
+
+/* PARTICLES */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<nav>
+
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#skillbars">Skill Level</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>Uwayezu Jeanpaul</h1>
+
+<p>
+IT Graduate | Web Developer | Networking & Cybersecurity Enthusiast
+</p>
+
+<a class="btn" href="cv.html" target="_blank">View My CV</a>
+
+</div>
+
+<!-- TERMINAL -->
+
+<section>
+
+<div class="card">
+
+<h2>Developer Terminal</h2>
+
+<pre id="terminal"></pre>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<div class="card">
+
+<p>
+I am an IT graduate passionate about software development, networking, cybersecurity, and IT support.
+</p>
+
+<p>
+I enjoy building web applications, exploring cybersecurity techniques, and solving technical problems.
+</p>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>AfricanDa Villagers Tours</h3>
+<p>Tourism website showcasing Rwanda travel experiences.</p>
+</div>
+
+<div class="project">
+<h3>QuickChance Mobile App</h3>
+<p>Mobile app for quick opportunities and digital services.</p>
+</div>
+
+<div class="project">
+<h3>Personal Finance Tracker</h3>
+<p>Offline mobile app to manage income and expenses.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<span>PHP</span>
+<span>JavaScript</span>
+<span>React</span>
+<span>Node.js</span>
+<span>Flutter</span>
+<span>MySQL</span>
+<span>MongoDB</span>
+<span>Networking</span>
+<span>Cybersecurity</span>
+<span>Computer Maintenance</span>
+<span>Troubleshooting</span>
+
+</div>
+
+</section>
+
+<!-- SKILL BARS -->
+
+<section id="skillbars">
+
+<h2>Technical Skill Level</h2>
+
+<div class="skill-bar">
+<p>PHP</p>
+<div class="bar"><div class="progress" data-width="85%"></div></div>
+</div>
+
+<div class="skill-bar">
+<p>JavaScript</p>
+<div class="bar"><div class="progress" data-width="80%"></div></div>
+</div>
+
+<div class="skill-bar">
+<p>React</p>
+<div class="bar"><div class="progress" data-width="70%"></div></div>
+</div>
+
+<div class="skill-bar">
+<p>Flutter</p>
+<div class="bar"><div class="progress" data-width="65%"></div></div>
+</div>
+
+<div class="skill-bar">
+<p>Networking</p>
+<div class="bar"><div class="progress" data-width="75%"></div></div>
+</div>
+
+<div class="skill-bar">
+<p>Cybersecurity</p>
+<div class="bar"><div class="progress" data-width="70%"></div></div>
+</div>
+
+<div class="skill-bar">
+<p>Computer Maintenance</p>
+<div class="bar"><div class="progress" data-width="90%"></div></div>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<div class="contact">
+
+<p>Email: jeanpaul.uwayezu01@gmail.com</p>
+<p>Phone: +250 787859915</p>
+
+<a href="https://github.com/uwajean" target="_blank">GitHub</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Uwayezu Jeanpaul
+
+</footer>
+
+<script>
+
+particlesJS("particles-js",{
+particles:{
+number:{value:80},
+size:{value:3},
+move:{speed:1},
+line_linked:{enable:true}
+}
+});
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const terminal=document.getElementById("terminal");
+
+const text=`
+> Initializing portfolio...
+> Loading projects...
+> Loading cybersecurity tools...
+> Access granted.
+> Welcome to Jeanpaul's developer portfolio.
+`;
+
+let i=0;
+
+function typeWriter(){
+
+if(i<text.length){
+
+terminal.innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,35);
+
+}
+
+}
+
+typeWriter();
+
+/* SKILL BAR ANIMATION */
+
+const bars=document.querySelectorAll(".progress");
+
+function animateSkills(){
+
+bars.forEach(bar=>{
+
+const width=bar.getAttribute("data-width");
+
+bar.style.width=width;
+
+});
+
+}
+
+setTimeout(animateSkills,1000);
+
+});
+
+</script>
+
+</body>
+</html>
