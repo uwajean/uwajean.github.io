@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -276,28 +277,15 @@ IT graduate passionate about web development, networking, cybersecurity, and IT 
 
 </section>
 
-<!-- PROJECTS -->
+<!-- GITHUB PROJECTS -->
 
 <section id="projects">
 
-<h2>Projects</h2>
+<h2>GitHub Projects</h2>
 
-<div class="projects">
+<div id="github-projects" class="projects">
 
-<div class="project">
-<h3>AfricanDa Villagers Tours</h3>
-<p>Tourism website for Rwanda travel experiences.</p>
-</div>
-
-<div class="project">
-<h3>QuickChance Mobile App</h3>
-<p>Mobile app for digital services.</p>
-</div>
-
-<div class="project">
-<h3>Personal Finance Tracker</h3>
-<p>Offline finance tracking mobile application.</p>
-</div>
+<p>Loading projects from GitHub...</p>
 
 </div>
 
@@ -423,7 +411,7 @@ const terminal=document.getElementById("terminal");
 const text=
 "> Initializing portfolio...\n"+
 "> Loading projects...\n"+
-"> Loading cybersecurity tools...\n"+
+"> Connecting to GitHub API...\n"+
 "> Access granted.\n"+
 "> Welcome to Jeanpaul's developer portfolio.\n";
 
@@ -461,7 +449,36 @@ bar.style.width=width;
 
 });
 
+/* GITHUB PROJECT LOADER */
+
+fetch("https://api.github.com/users/uwajean/repos")
+.then(response => response.json())
+.then(data => {
+
+const container = document.getElementById("github-projects");
+
+container.innerHTML = "";
+
+data.slice(0,6).forEach(repo => {
+
+const project = document.createElement("div");
+
+project.classList.add("project");
+
+project.innerHTML = `
+<h3>${repo.name}</h3>
+<p>${repo.description ? repo.description : "No description available."}</p>
+<a href="${repo.html_url}" target="_blank">View on GitHub</a>
+`;
+
+container.appendChild(project);
+
+});
+
+});
+
 </script>
 
 </body>
 </html>
+```
