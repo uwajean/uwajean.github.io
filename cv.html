@@ -1,77 +1,190 @@
-
-
-
-
-<!-- THIS IS cv.html - PROFESSIONAL CV (Printable with Rwanda flag) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UWAYEZU Jeanpaul - CV</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
-    :root { --accent: #58a6ff; }
-    body { margin:0; padding:0; font-family:'Inter',sans-serif; background:#f8f9fa; color:#1f2428; line-height:1.65; }
-    .cv-container { max-width:860px; margin:40px auto; padding:50px 55px; background:white; box-shadow:0 15px 50px rgba(0,0,0,0.09); border-radius:16px; border-top:8px solid var(--accent); }
-    header { display:flex; align-items:center; gap:30px; padding-bottom:28px; border-bottom:3px solid var(--accent); }
-    .profile-pic { width:165px; height:165px; border-radius:50%; object-fit:cover; border:5px solid var(--accent); box-shadow:0 0 30px rgba(88,166,255,0.3); }
-    .flag { width:42px; height:28px; border-radius:3px; box-shadow:0 2px 8px rgba(0,0,0,0.15); margin-right:12px; }
-    h1 { font-family:'Poppins',sans-serif; font-size:2.55rem; margin:0; color:#0d1117; display:flex; align-items:center; gap:10px; }
-    .title { font-size:1.28rem; color:var(--accent); font-weight:600; margin:8px 0 16px; }
-    h2 { font-family:'Poppins',sans-serif; color:var(--accent); font-size:1.38rem; border-bottom:2px solid #e6edf3; padding-bottom:9px; margin-top:38px; }
-    @media print { .cv-container { box-shadow:none; margin:0; padding:35px 45px; border-top:6px solid var(--accent); } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UWAYEZU Jeanpaul - CV</title>
+<style>
+.root{--accent:#58a6ff;}
+body{margin:0;padding:0;font-family:'Inter',sans-serif;background:#f8f9fa;color:#1f2428;line-height:1.65;overflow-x:hidden;}
+.cv-container{width:860px;max-width:100%;box-sizing:border-box;margin:40px auto;padding:50px 55px;background:white;box-shadow:0 15px 50px rgba(0,0,0,0.09);border-radius:16px;border-top:8px solid var(--accent);} 
+header{display:flex;align-items:center;gap:30px;padding-bottom:28px;border-bottom:3px solid var(--accent);}
+.profile-pic{width:165px;height:165px;border-radius:50%;object-fit:cover;border:5px solid var(--accent);}
+.flag{width:42px;height:28px;border-radius:3px;}
+h1{font-family:'Poppins',sans-serif;font-size:2.55rem;margin:0;color:#0d1117;display:flex;align-items:center;gap:10px;}
+.title{font-size:1.28rem;color:var(--accent);font-weight:600;}
+@media print{.cv-container{box-shadow:none;margin:0;padding:35px 45px;border-top:6px solid var(--accent);}}
+.floating-download {position:fixed; top:20px; right:20px; background:#0a66c2; color:white; padding:10px 18px; border-radius:8px; font-weight:bold; display:flex; align-items:center; gap:8px; box-shadow:0 5px 15px rgba(0,0,0,0.12); z-index:9999; text-decoration:none;}
+
+/* Contact panel (bottom center) */
+.contact-panel {position:fixed; left:50%; transform:translateX(-50%); bottom:18px; z-index:9998; display:flex; align-items:flex-end; gap:12px;}
+.contact-toggle {width:48px;height:48px;border-radius:50%;border:none;background:#58a6ff;color:white;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.15);cursor:pointer}
+.contact-items {background:transparent; display:flex; gap:10px; align-items:center; transform:translateY(20px); opacity:0; transition:transform .28s ease,opacity .28s ease;}
+.contact-items.open {transform:translateY(0); opacity:1}
+.contact-items a{display:inline-flex;align-items:center;gap:8px;background:#161b22;color:white;padding:10px 12px;border-radius:10px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+@media print {
+  .floating-download, .contact-panel, .corner-icons { display:none !important; }
+}
+/* Print improvements: A4 sizing and clearer print colors */
+@page { size: A4; margin: 20mm; }
+@media print {
+  body { background: white; color: #111; }
+  .cv-container { box-shadow: none; max-width: 100%; margin: 0; padding: 18mm; border-radius: 0; }
+  a { color: inherit; text-decoration: underline; }
+}
+/* Responsive improvements for small devices */
+@media (max-width: 700px) {
+  .cv-container{margin:12px;padding:18px;}
+  header{flex-direction:column;align-items:center;text-align:center;padding-bottom:18px;}
+  .profile-pic{width:110px;height:110px;border-radius:50%;border-width:4px;}
+  h1{font-size:1.6rem;}
+  .title{font-size:1rem;margin-top:6px}
+  .flag{width:32px;height:20px;margin-left:6px}
+  .floating-download{right:12px;padding:8px 12px;top:12px}
+  .contact-panel{bottom:12px}
+  h2{font-size:1.05rem}
+  p{font-size:0.98rem}
+  a{word-break:break-word}
+}
+
+/* Two-column grids collapse to single column on narrow screens */
+.two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+@media (max-width:700px){ .two-col-grid{grid-template-columns:1fr} }
+
+/* Ensure images don't cause horizontal overflow */
+.cv-container img{max-width:100%;height:auto}
+
+/* Prevent flex children from overflowing the container */
+header > div, .two-col-grid > div {min-width:0}
+.profile-pic{flex-shrink:0}
+
+/* Prevent page-level side-scrolling on some mobile browsers */
+html { overscroll-behavior-x: none; }
+/* Corner icon column (right edge) */
+.corner-icons {position:fixed; left:14px; bottom:80px; z-index:9999; display:flex; flex-direction:column; gap:12px; align-items:center;}
+.corner-icons a{width:54px;height:54px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#0f1720;color:white;text-decoration:none;box-shadow:0 10px 30px rgba(2,6,23,0.35);transition:transform .18s ease,box-shadow .18s ease;position:relative;overflow:visible}
+.corner-icons a.download{background:#0a66c2}
+.corner-icons a img{width:26px;height:26px;object-fit:contain;filter:drop-shadow(0 1px 0 rgba(0,0,0,0.2))}
+.corner-icons a:hover{transform:translateX(6px) scale(1.03);box-shadow:0 16px 40px rgba(2,6,23,0.45)}
+/* tooltip label on hover (right side) */
+.corner-icons a::after{content:attr(title);position:absolute;left:70px;top:50%;transform:translateY(-50%);background:rgba(13,17,23,0.95);color:#fff;padding:6px 10px;border-radius:8px;white-space:nowrap;font-size:13px;opacity:0;pointer-events:none;transition:opacity .14s ease,transform .14s ease}
+.corner-icons a:hover::after{opacity:1;transform:translateY(-50%) translateX(6px)}
+@media (max-width:600px){.corner-icons{left:8px;bottom:64px;gap:10px}.corner-icons a{width:44px;height:44px}.corner-icons a img{width:20px;height:20px}.corner-icons a::after{display:none}}
+/* slide in/out states */
+.corner-icons {transform:translateX(-110%);opacity:0;transition:transform .45s cubic-bezier(.2,.9,.2,1),opacity .35s ease}
+.corner-icons.visible{transform:translateX(0);opacity:1}
+.corner-icons.hidden{transform:translateX(-110%);opacity:0}
+.corner-icons:hover{transform:translateX(0);opacity:1}
+
+/* Section heading styling: accent bar + spacing */
+h2{font-size:1.25rem;margin-top:36px;margin-bottom:12px;color:#0d1117;position:relative;padding-bottom:12px}
+h2::after{content:"";display:block;width:72px;height:6px;background:var(--accent);border-radius:6px;margin-top:8px}
+
+/* Slight section container spacing for readability */
+.cv-container > h2 + p, .cv-container > h2 + div {margin-top:8px}
+</style>
 </head>
 <body>
-  <div class="cv-container">
-    <header>
-      <img src="https://avatars.githubusercontent.com/u/161443520?v=4&size=400" alt="UWAYEZU Jeanpaul" class="profile-pic">
-      <div>
-        <h1><img src="https://flagcdn.com/w40/rw.png" alt="Rwanda" class="flag">UWAYEZU Jeanpaul</h1>
-        <div class="title">Full-Stack Developer | Networking & Cybersecurity Enthusiast | IT Support & Hardware Specialist</div>
-        <div style="font-size:0.96rem;">
-          jeanpaul.uwayezu01@gmail.com • +250 787 859 915 • 
-          <a href="https://linkedin.com/in/uwayezu-jeanpaul" target="_blank">LinkedIn</a> • 
-          <a href="https://github.com/uwajean" target="_blank">GitHub</a> • 
-          <a href="https://uwajean.github.io" target="_blank">Portfolio</a>
-        </div>
-      </div>
-    </header>
+<div class="cv-container">
+<header>
+<img src="https://avatars.githubusercontent.com/u/161443520?v=4&size=400" alt="UWAYEZU Jeanpaul" class="profile-pic">
+<div>
+<h1><img src="https://flagcdn.com/w40/rw.png" alt="Rwanda" class="flag">UWAYEZU Jeanpaul</h1>
+<div class="title">Full-Stack Developer | Networking & Cybersecurity Enthusiast | IT Support</div>
+<div style="font-size:0.96rem;">jeanpaul.uwayezu01@gmail.com • +250 787 859 915 • 
+<a href="https://www.linkedin.com/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BbCBD2iksQNGP9Cl8hsYDaQ%3D%3D" target="_blank">LinkedIn</a> • 
+<a href="https://github.com/uwajean" target="_blank">GitHub</a> • 
+<a href="https://uwajean.github.io" target="_blank">Portfolio</a>
+</div>
+</div>
+</header>
 
-    <h2>Professional Summary</h2>
-    <p style="font-size:1.05rem;background:#f8f9fa;padding:18px 22px;border-radius:10px;border-left:5px solid var(--accent);">
-      Motivated IT graduate and Full-Stack Developer with strong expertise in software development, networking, cybersecurity, and IT hardware support. 
-      Currently seeking internship or entry-level opportunities in Rwanda or remotely.
-    </p>
+<h2>Professional Summary</h2>
+<p style="font-size:1.05rem;background:#f8f9fa;padding:18px 22px;border-radius:10px;border-left:5px solid var(--accent);">Motivated IT graduate and Full-Stack Developer with practical experience in software development, networking, cybersecurity, and hardware support. Seeking internship or entry-level opportunities in Software Development, Networking, Cybersecurity, or IT Support. (Tip: replace the examples below with real numbers where available.)</p>
 
-    <h2>Professional Experience</h2>
-    <p><strong>Intern – Huye Innovation Hub</strong> | Huye, Rwanda | 2025<br>Supported software development and IT infrastructure projects.</p>
-    <p><strong>Intern – Ministry of Education (MINEDUC)</strong> | Rwanda | 2023<br>Provided IT support and network configuration.</p>
+<h2>Professional Experience</h2>
+<p><strong>Intern – Huye Innovation Hub</strong> | Huye, Rwanda | 2025<br>Supported software development and IT infrastructure projects.</p>
+<p><strong>Intern – Ministry of Education (MINEDUC)</strong> | Rwanda | 2023<br>Provided IT support and network configuration.</p>
 
-    <h2>Featured Projects</h2>
-    <p><strong>🌍 AfricanDa Villagers Tours</strong> – <a href="https://africandavillagerstours.com">Live Site</a></p>
-    <p><strong>📱 QuickChance Mobile App</strong> – In development (Flutter + Node.js)</p>
-    <p><strong>💰 Personal Finance Tracker</strong> – Offline (Flutter + Hive)</p>
-
-    <h2>Technical Skills</h2>
-    <p>PHP • JavaScript • React • Node.js • Flutter • MySQL • MongoDB • Linux • Cybersecurity • Networking • Computer Repair • CCTV Installation • Git • Postman</p>
-
-    <h2>Education</h2>
-    <p><strong>Advanced Diploma in Information Technology</strong> – IPRC Huye (2022–2025)<br>
-    <strong>Advanced Level – Software Development</strong> – Groupe Scolaire des Parents (2019–2022)</p>
-    <h2>Certifications</h2>
-
+<h2>Featured Projects</h2>
 <p>
-<strong>Advanced TVET Certificate V</strong> – Information Technology  
-Technical and Vocational Education and Training (TVET)
+  <strong>AfricanDa Villagers Tours</strong> – <a href="https://africandavillagerstours.com">Live Site</a><br>
+  Role: Lead web developer. Stack: PHP, JavaScript, MySQL. Impact: improved booking flow and usability (replace with actual metrics, e.g., "increased bookings by 25%" or "served 1,200 monthly visitors").
 </p>
-    <h2>Fun Fact</h2>
-    <p>I enjoy combining software development, networking, and hardware troubleshooting to build practical solutions for Rwanda and beyond.</p>
+<p>
+  <strong>QuickChance Mobile App</strong> – In development (Flutter + Node.js)<br>
+  Role: Mobile developer. Stack: Flutter frontend, Node.js backend. Progress: core UI completed; API integration and user authentication in progress. (Add release targets or user/test metrics if available.)
+</p>
+<p>
+  <strong>Personal Finance Tracker</strong> – Offline (Flutter + Hive)<br>
+  Role: Solo developer. Stack: Flutter, Hive DB. Use case: lightweight expense tracking for offline environments; demonstrated in classroom/field tests (add numbers or pilot feedback if available).
+</p>
 
-    <footer style="margin-top:55px;text-align:center;color:#8b949e;">
-      © 2026 UWAYEZU Jeanpaul • Rwandan National • Open to Opportunities
-    </footer>
+<h2>Technical Skills</h2>
+<div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;">
+  <div>
+    <h3 style="margin:6px 0;color:var(--accent);">Software Development</h3>
+    <p>PHP, JavaScript, React, Node.js, Flutter</p>
+
+    <h3 style="margin:6px 0;color:var(--accent);">Databases</h3>
+    <p>MySQL, PostgreSQL, MongoDB</p>
+
+    <h3 style="margin:6px 0;color:var(--accent);">Tools</h3>
+    <p>Git, Postman, Linux, VS Code</p>
   </div>
+  <div>
+    <h3 style="margin:6px 0;color:var(--accent);">Networking & Cybersecurity</h3>
+    <p>Network Fundamentals, Cybersecurity Basics, Network Troubleshooting</p>
+
+    <h3 style="margin:6px 0;color:var(--accent);">IT Support & Hardware</h3>
+    <p>Computer Repair & Maintenance, System Troubleshooting, CCTV Installation</p>
+  </div>
+</div>
+
+<h2>Soft Skills</h2>
+<p>Communication • Teamwork • Problem Solving • Adaptability • Time Management • Mentoring & Leadership</p>
+
+<h2>Languages</h2>
+<p>Kinyarwanda (Native) • English (Fluent)</p>
+
+<h2>Education</h2>
+<p><strong>Advanced Diploma in Information Technology</strong> – IPRC Huye (2022–2025)<br><strong>Advanced Level – Software Development</strong> – Groupe Scolaire des Parents (2019–2022)</p>
+
+<h2>Certifications</h2>
+<p><strong>Advanced TVET Certificate V</strong> – Information Technology<br>Technical and Vocational Education and Training (TVET)</p>
+
+<h2>Fun Fact</h2>
+<p>I enjoy combining software development, networking, and hardware troubleshooting to build practical solutions for Rwanda and beyond.</p>
+
+<h2>References</h2>
+<p>References available upon request.</p>
+
+<footer style="margin-top:55px;text-align:center;color:#8b949e;">© 2026 UWAYEZU Jeanpaul • Rwandan National • Open to Opportunities</footer>
+</div>
+
+<!-- Corner angled icon row -->
+<div class="corner-icons">
+  <a class="download" href="#" onclick="window.print();return false;" title="Download CV"><img src="download.png" alt="Download"></a>
+  <a href="mailto:jeanpaul.uwayezu01@gmail.com" title="Email"><img src="email.png" alt="Email"></a>
+  <a href="https://wa.me/250787859915" target="_blank" rel="noopener" title="WhatsApp"><img src="whatsapp.png" alt="WhatsApp"></a>
+  <a href="https://www.linkedin.com/in/jeanpaul-uwayezu-76845a3b7" target="_blank" rel="noopener" title="LinkedIn"><img src="linkedin.png" alt="LinkedIn"></a>
+  <a href="https://github.com/uwajean" target="_blank" rel="noopener" title="GitHub"><img src="github.png" alt="GitHub"></a>
+</div>
+<script>
+  (function(){
+    const icons = document.querySelector('.corner-icons');
+    if(!icons) return;
+    function show(){ icons.classList.add('visible'); icons.classList.remove('hidden'); }
+    function hide(){ icons.classList.add('hidden'); icons.classList.remove('visible'); }
+    window.addEventListener('DOMContentLoaded', ()=> setTimeout(show, 300));
+    icons.addEventListener('mouseenter', show);
+    let lastY = 0;
+    window.addEventListener('scroll', ()=>{
+      const y = window.scrollY || window.pageYOffset;
+      if(y > 200 && y > lastY) hide(); else show();
+      lastY = y;
+    }, {passive:true});
+  })();
+</script>
 </body>
 </html>
